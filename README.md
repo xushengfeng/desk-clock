@@ -11,17 +11,8 @@ npm install
 node app.js
 ```
 
-来启动音乐服务,记得在js/privacy.js里面加入自己账号以保证可以听vip
-
-在`js/privacy.js`加入
-
-```
-privacy = {
-    music_id : "网易云邮箱",
-    music_passwd : "网易云md5密码",
-    weather_id : "彩云天气秘钥/116.00,39.00"
-}
-```
+来启动音乐服务
 
 天气服务则需要在彩云天气上申请一个秘钥
 
+初次使用会提示你输入个人信息，并保存到本地cookie
