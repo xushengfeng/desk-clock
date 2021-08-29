@@ -1,3 +1,4 @@
+privacy = {}
 if (document.cookie == '') {
     privacy.music_id = prompt('你的网易云音乐邮箱', )
     privacy.music_passwd = prompt('你的网易云音乐md5密码', )

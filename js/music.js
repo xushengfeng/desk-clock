@@ -49,7 +49,7 @@ cookie = ''
 function user_music_list_load() {
     //cookie和用户信息
     user_login = get('http://localhost:3000/login?email=' + privacy['music_id'] + '&md5_password=' + privacy['music_passwd'])
-    cookie = user_login.cookie
+    if(user_login!=null) cookie = user_login.cookie
     if (user_login != null) {
         var list = get('http://' + ip + ':3000/user/playlist?uid=' + user_login.account.id)
         var MainList = ''
