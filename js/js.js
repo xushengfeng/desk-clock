@@ -1,11 +1,15 @@
-privacy = {}
-if (document.cookie == '') {
+if (localStorage.desk_clock == undefined) {
+    var privacy = {
+        music_id: '',
+        music_passwd: '',
+        weather_id: ''
+    }
     privacy.music_id = prompt('你的网易云音乐邮箱', )
     privacy.music_passwd = md5(prompt('你的网易云音乐密码', ))
     privacy.weather_id = prompt('彩云天气秘钥和地址', 'xxxxx/116.00,39.00')
-    document.cookie=JSON.stringify(privacy)
-}else{
-    privacy=JSON.parse(document.cookie)
+    localStorage['desk_clock'] = JSON.stringify(privacy)
+} else {
+    privacy = JSON.parse(localStorage.desk_clock)
 }
 
 // widget
