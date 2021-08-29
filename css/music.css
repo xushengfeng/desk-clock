@@ -1,0 +1,226 @@
+:root {
+    --main-color: #313131
+}
+
+.music {
+    margin: 0px;
+    /* background-color: #000; */
+    color: #313131;
+    height: 100%;
+    width: 100%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.list {
+    width: 30%;
+    height: 85%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    float: left;
+}
+
+.listWords {
+    font-size: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.musicList {
+    width: 70%;
+    height: 85%;
+    float: left;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+
+.nameListWord {
+    overflow: hidden;
+    margin-left: 8px;
+}
+
+.nameListWordP {
+    font-size: 20px;
+    margin: 0px;
+    white-space: nowrap;
+}
+
+.musicFrom {
+    color: #777;
+}
+
+.singer {
+    font-size: 16px;
+}
+
+.play {
+    /* position: absolute; */
+    /* bottom: 0px; */
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 32px;
+    /* backdrop-filter: blur(100px); */
+    width: 100%;
+    display: flex;
+    height: 15%;
+    align-items: center;
+    /* padding-right: 1; */
+}
+
+#fengmian {
+    width: auto;
+    height: 100%;
+    /* background-position: center; */
+    float: left;
+    /* background-size: cover; */
+    margin-right: 10px;
+    border-radius: 32px;
+    /* background-image: url(../assets/musicicon/bg.svg) */
+}
+
+#playMain {
+    flex-grow: 1;
+}
+
+#playBottom {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.playWords {
+    font-size: 30px;
+    margin: 0px;
+    color: var(--main-color);
+}
+
+#playLong {
+    display: flex;
+    flex-grow: 2;
+}
+
+.playTime {
+    float: left;
+    margin: 0 6px;
+    width: 40px;
+    color: var(--main-color);
+}
+
+.playAllTime {
+    margin: 0px 6px;
+    float: left;
+    width: 40px;
+    color: var(--main-color);
+}
+
+.playTimeLong {
+    float: left;
+    /* width: 90%; */
+    margin: 0;
+    flex-grow: 1;
+}
+
+#playControl {
+    /* float: left; */
+    /* width:245px; */
+    /* position: relative; */
+    /* top: -10px; */
+    margin: 0 16px;
+    fill: var(--main-color);
+    stroke: var(--main-color);
+}
+
+.playMiniControl {
+    white-space: pre;
+}
+
+.playModel,
+.lastMusic,
+.stopOrStart,
+.nextMusic,
+.playList,
+.disOrAppear,
+.aMusic {
+    width: 35px;
+    height: 35px;
+    float: left;
+    margin: 4px;
+
+}
+
+/* .lastMusic {
+    background-image: url(../assets/musicicon/last.svg)
+}
+
+.nextMusic {
+    background-image: url(../assets/musicicon/next.svg)
+}
+
+.playList {
+    background-image: url(../assets/musicicon/list.svg)
+}
+
+.disOrAppear {
+    background-image: url(../assets/musicicon/tra.svg)
+}
+
+.aMusic {
+    background-image: url(../assets/musicicon/aMusic.svg)
+} */
+
+#lyric {
+    overflow-y: auto;
+    height: 85%;
+    /* width: 974px; */
+    scroll-behavior: smooth;
+    color: var(--main-color);
+    font-size: 20px;
+}
+
+.lyricList {
+    height: 80px;
+    transition: 0.6s;
+    border-radius: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lyricLrc,
+.lyricT {
+    margin: 0;
+    text-align: center;
+}
+
+/*横条样式*/
+#range {
+    -webkit-appearance: none;
+    background-size: 75% 100%;
+    border-radius: 10px;
+    background: linear-gradient(var(--main-color),var(--main-color)) no-repeat, #ddd;
+
+}
+
+#range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+}
+
+#volume {
+    -webkit-appearance: none;
+    background-size: 100% 100%;
+    border-radius: 10px;
+    background: linear-gradient(var(--main-color),var(--main-color)) no-repeat, #ddd;
+
+}
+
+#volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+}

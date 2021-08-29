@@ -1,0 +1,68 @@
+/* 时间模块 */
+.timeall {
+    height: 600px;
+    width: 974px;
+}
+
+.timeleft {
+    /* float: left; */
+    margin-left: 30px;
+}
+
+.time {
+    font-size: 50px;
+    margin: 0px;
+}
+
+.day {
+    font-size: 24px;
+    margin: 0;
+}
+
+.festival {
+    font-size: 24px;
+}
+
+.count {
+    font-size: 24px;
+    margin: 0px;
+}
+
+/* 日历模块 */
+.calendar {
+    width: 420px;
+    /* float: right; */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.week {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.cDiv {
+    /* float: left; */
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+}
+
+.Dt,
+.NDt,
+.DtD {
+    text-align: center;
+    margin-top: 4px;
+}
+
+.NDt {
+    color: #313131aa
+}
+
+.Dt {
+    color: #313131;
+}
+
+.DtD{
+    color: #fff;
+}

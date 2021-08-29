@@ -1,0 +1,91 @@
+/* 倒计时模块 */
+.cdoutsize {
+    width: 974px;
+    height: 600px;
+    margin-top: -3px;
+}
+
+.countdown {
+    width: 300px;
+    margin: 0px auto auto;
+    position: relative;
+    top: 40px;
+}
+
+#countdown{
+    position: relative;
+}
+
+#slTop {
+    width: 300px;
+    height: 250px;
+    background: url('../assets/ldBg.png') no-repeat;
+    clip-path: path("M 32,0 C 14.272,0 0,14.272 0,32 v 61 c 0,9.26795 3.9238522,17.56692 10.179688,23.40039 v 0 L 150,250 289.82031,116.40039 v 0 C 296.07615,110.56692 300,102.26795 300,93 V 32 C 300,14.272 285.728,0 268,0 Z");
+    background-color: rgba(105, 105, 105, 0.333);
+    background-position: 0 50px;
+    /* backdrop-filter: blur(10px); */
+}
+
+#slLow {
+    width: 300px;
+    height: 250px;
+    background: url('../assets/ldBg.png') no-repeat;
+    clip-path: path("M 150,0 10.179688,133.59961 v 0 C 3.9238522,139.43308 0,147.73205 0,157 v 61 c 0,17.728 14.272,32 32,32 h 236 c 17.728,0 32,-14.272 32,-32 v -61 c 0,-9.26795 -3.92385,-17.56692 -10.17969,-23.40039 v 0 z");
+    background-color: rgba(105, 105, 105, 0.333);
+    background-position: 50% 250px;
+    /* backdrop-filter: blur(10px); */
+}
+
+#cdControl {
+    position: absolute;
+    /* top: 30px; */
+    /* left: 20px; */
+    z-index: 2;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#cdM,#cdM1 {
+    font-size: 100px;
+    width: 80px;
+    height: 100px;
+    border: 0px;
+    background-color: #0000;
+    color: #fff;
+    float: left;
+}
+
+#cdNum {
+    font-size: 100px;
+    width: 0px;
+    /* height: 100px; */
+    border: 0px;
+    background-color: #0000;
+    color: #fff0;
+    float: left;
+    margin: 0;
+    text-align: center;
+}
+
+option {
+    color: black;
+}
+
+#StOrSt {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 25px solid#2283F6;
+    background-color: #fff;
+    float: right;
+}
+
+#slLine {
+    position: absolute;
+    width: 2px;
+    height: 251px;
+    left: 149px;
+    top: 249px;
+}

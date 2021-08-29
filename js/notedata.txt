@@ -1,0 +1,5 @@
+allday = [1, 2, 3, 4, 5, 6, 7];
+myday = [1, 2, 3, 4, 5];
+weekend = [6, 7]
+alarmlist = [[true, 6, 30, myday],[true, 13, 55, allday],[true,8,30,weekend]]
+------

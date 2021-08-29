@@ -1,0 +1,175 @@
+/* 天气模块 */
+#mapb {
+    width: 30px;
+    height: 30px;
+    background-color: #fff5;
+    /* position: absolute; */
+    border-radius: 10px;
+    background-image: url(../assets/map.svg);
+    background-position: center;
+    background-size: 70%;
+    background-repeat: no-repeat;
+}
+
+#map {
+    width: 800px;
+    height: 600px;
+    /* position: absolute; */
+    left: 50px;
+    border-radius: 10px;
+    z-index: 999;
+}
+
+.weatherall {
+    width: 954px;
+    height: 600px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#weather {
+    font-size: 50px;
+    margin: 0;
+    /* width: 130px; */
+    /* margin: 0 auto auto; */
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+#otherweather {
+    font-size: 30px;
+    color: #fff;
+}
+
+.cloudrate {
+    width: 30px;
+    height: 30px;
+}
+
+.weatherli,
+#visibility,
+#apparent_temperature,
+#wind,
+#pressure {
+    margin-right: 8px;
+}
+
+#precipitation{
+    color: #fff;
+    font-size: 30px
+}
+
+#humidity {
+    height: 24px;
+    background-color: #fff5;
+    border-radius: 20px;
+    margin: 8px 0 8px 0;
+    width: 100%;
+    color: #fff;
+    /* float: left; */
+}
+
+#humidityshort {
+    height: 24px;
+    background-color: #2a97ff;
+    border-radius: 20px;
+}
+
+.humidityp {
+    margin: 0 0 0 10px;
+}
+
+#sunriseset {
+    width: 100%;
+/*     height: 50px; */
+    color: #fff;
+    margin: 8px 0 8px 0;
+}
+
+.sunline {
+    margin-top: 10px;
+    border: 1px #ffd892 dashed;
+}
+
+#sun {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(to bottom right, #ffd88c,#ffcb7d );
+    border-radius: 50%;
+    margin-top: -11px;
+    position: relative;
+}
+
+#sunrisep {
+    float: left;
+    margin: 0;
+}
+
+#sunsetp {
+    float: right;
+    margin: 0;
+}
+
+#hweather {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+    color: #fff;
+    margin: 8px 0 8px 0;
+}
+
+.weathertime {
+    text-align: center;
+}
+
+.hweatherli {
+    width: 50px;
+    margin: 0 8px;
+}
+
+.hTemperature {
+    font-size: 20px;
+    text-align: center;
+}
+
+.hSkycon {
+    width: 20px;
+    margin: 0 auto auto;
+}
+
+#dweather {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    color: #fff;
+    margin: 8px 0 8px 0;
+}
+
+.dweatherli {
+    width: 150px;
+}
+
+.dSkycon1,
+.dSkycon2 {
+    width: 40px;
+    margin: 0 auto auto;
+}
+
+.dTemperature1,
+.dTemperature2 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.dTemperature1 {
+    margin-bottom: 10px
+}
+
+#description{
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+}

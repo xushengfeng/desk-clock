@@ -1,0 +1,18 @@
+.notes {
+    width: 974px;
+    height: 600px;
+}
+
+#notes {
+    background-color: #fff6;
+    width: 914px;
+    height: 540px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 0px;
+    resize: none;
+    font-size: 20px;
+    font-family: 'MI';
+    margin: 20px;
+    /*     backdrop-filter:blur(10px); */
+}

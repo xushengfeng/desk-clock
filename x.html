@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <style>
+
+  </style>
+<div class="music">
+  <!-- 背部歌单 -->
+  <div id="list" class="list">加载失败，请检查音乐服务器</div>
+  <div id="musicList" class="musicList"></div><!-- 歌词 -->
+  <div id="lyric" style="display: none;" class="lyric"></div><!-- 底部播放控件 -->
+  <div id="play" class="play"><img class="fengmian" id="fengmian" src="assets/musicicon/bg.png"><audio id="music"
+          volume="0.1">
+          <source type="audio/mpeg" controls="controls">
+          </source></audio>
+      <div id="playMain">
+          <p id="playWords" class="playWords">暂无播放曲目</p>
+          <div id="playLong">
+              <p id="playTime" class="playTime"></p><input type="range" min="0" max="90" id="range"
+                  oninput="playTimeLong()" class="playTimeLong" value="0">
+              <p id="playAllTime" class="playAllTime"></p>
+          </div>
+      </div><input type="range" min="0" max="100" id="volume" oninput="volume()" class="volume" value="100">
+      <div class="playControl" style="fill:#313131;stroke:#313131"><a onclick="playModel()">
+              <div class="playModel" id="playModel"><svg width="200" height="200" viewBox="0 0 52.917 52.917" xmlns="http://www.w3.org/2000/svg"><g stroke=""><rect width="47.376" height="31.501" x="2.77" y="10.708" ry="15.75" rx="15.75" fill="none" stroke-width="5.541"/><rect width="5.182" height="18.411" x="23.867" y="17.253" ry="2.591" fill="" stroke-width="0"/><rect width="7.851" height="5.205" x="21.198" y="17.253" ry="2.603" fill="" stroke-width="0"/></g></svg></div>
+          </a><a onclick="lastMusic()">
+              <div class="lastMusic"><svg width="200" height="200" viewBox="0 0 52.917 52.917" xmlns="http://www.w3.org/2000/svg"><g fill=""><rect width="10.583" height="52.917" x="-.134" ry="5.292" stroke-width="0"/><path d="M10.583 26.458L52.917 0v52.917z" stroke-width="0"/></g></svg></div>
+          </a><a onclick="stopOrStart()">
+              <div class="stopOrStart" id="stopOrStart"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 52.917 52.917"><path d="M46.302 26.458L6.615 52.917V0z" fill="" stroke-width="0"/></svg></div>
+          </a><a onclick="nextMusic()">
+              <div class="nextMusic"><svg width="200" height="200" viewBox="0 0 52.917 52.917" xmlns="http://www.w3.org/2000/svg"><g fill=""><rect width="10.583" height="52.917" x="42.333" ry="5.292" stroke-width="0"/><path d="M42.333 26.458L0 0v52.917z" stroke-width="0"/></g></svg></div>
+          </a><a onclick="playList()">
+              <div class="playList"><svg width="200" height="200" viewBox="0 0 52.917 52.917" xmlns="http://www.w3.org/2000/svg"><g fill=""><rect width="52.917" height="10.583" ry="5.292" stroke-width="0"/><rect width="52.917" height="10.583" y="21.167" ry="5.292" stroke-width="0"/><rect width="52.917" height="10.583" y="42.333" ry="5.292" stroke-width="0"/></g></svg></div>
+          </a><a onclick="disOrAppear()">
+              <div class="disOrAppear"><svg width="200" height="200" viewBox="0 0 52.917 52.917" xmlns="http://www.w3.org/2000/svg"><g fill=""><rect width="52.917" height="10.583" ry="5.292" stroke-width="0"/><rect width="10.583" height="52.917" x="21.167" ry="5.292" stroke-width="0"/></g></svg></div>
+          </a><a onclick="aMusic()">
+              <div class="aMusic"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 52.917 52.917"><g><ellipse cx="26.458" cy="26.458" rx="24.053" ry="24.053" fill="none" stroke="" stroke-width="4.811"/><circle cx="26.458" cy="26.458" r="13.229" fill="" stroke-width="0"/></g></svg></div>
+          </a></div>
+  </div>
+</div>
+  <script>
+  </script>
+</body>
+
+</html>
