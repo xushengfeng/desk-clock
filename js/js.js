@@ -1,7 +1,7 @@
 privacy = {}
 if (document.cookie == '') {
     privacy.music_id = prompt('你的网易云音乐邮箱', )
-    privacy.music_passwd = prompt('你的网易云音乐md5密码', )
+    privacy.music_passwd = md5(prompt('你的网易云音乐密码', ))
     privacy.weather_id = prompt('彩云天气秘钥和地址', 'xxxxx/116.00,39.00')
     document.cookie=JSON.stringify(privacy)
 }else{
