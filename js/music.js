@@ -438,7 +438,7 @@ function lyric2list(lyric) {
 
 function lt2t(t) {
     t = t.match(/\[([0-9]+):([0-9]+).([0-9]+)\]/)
-    var key = t[1] * 80 + Number(t[2] + '.' + t[3])
+    var key = t[1] * 60 + Number(t[2] + '.' + t[3])
     return key
 }
 
