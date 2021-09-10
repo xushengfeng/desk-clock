@@ -77,7 +77,7 @@ function reflash() {
     }
     if (ss != initialS) { // 秒刷新
         initialS = new Date().getSeconds()
-        document.getElementById('1').innerHTML = showTime() + showDay() + showCDD() + playMiniControl()
+        document.getElementById('1').innerHTML = showTime() + showDay() + showCDD() + play_mini_control()
     }
 
     if (dd != initialD) { // 天刷新

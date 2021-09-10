@@ -22,7 +22,7 @@
     float: left;
 }
 
-.listWords {
+.list_words {
     font-size: 20px;
     overflow: hidden;
     white-space: nowrap;
@@ -30,7 +30,7 @@
     margin-top: 8px;
 }
 
-.musicList {
+.music_list {
     width: 70%;
     height: 85%;
     float: left;
@@ -38,18 +38,18 @@
     scroll-behavior: smooth;
 }
 
-.nameListWord {
+.name_list_word {
     overflow: hidden;
     margin-left: 8px;
 }
 
-.nameListWordP {
+.name_list_word_p {
     font-size: 20px;
     margin: 0px;
     white-space: nowrap;
 }
 
-.musicFrom {
+.music_from {
     color: #777;
 }
 
@@ -81,49 +81,49 @@
     /* background-image: url(../assets/musicicon/bg.svg) */
 }
 
-#playMain {
+#play_main {
     flex-grow: 1;
 }
 
-#playBottom {
+#play_bottom {
     display: flex;
     align-items: center;
     width: 100%;
 }
 
-.playWords {
+.play_words {
     font-size: 30px;
     margin: 0px;
     color: var(--main-color);
 }
 
-#playLong {
+#play_long {
     display: flex;
     flex-grow: 2;
 }
 
-.playTime {
+.play_time {
     float: left;
     margin: 0 6px;
     width: 40px;
     color: var(--main-color);
 }
 
-.playAllTime {
+.play_all_time {
     margin: 0px 6px;
     float: left;
     width: 40px;
     color: var(--main-color);
 }
 
-.playTimeLong {
+.play_time_range {
     float: left;
     /* width: 90%; */
     margin: 0;
     flex-grow: 1;
 }
 
-#playControl {
+#play_control {
     /* float: left; */
     /* width:245px; */
     /* position: relative; */
@@ -133,17 +133,17 @@
     stroke: var(--main-color);
 }
 
-.playMiniControl {
+.play_mini_control {
     white-space: pre;
 }
 
-.playModel,
-.lastMusic,
-.stopOrStart,
-.nextMusic,
-.playList,
-.disOrAppear,
-.aMusic {
+.play_model,
+.last_music,
+.stop_or_start,
+.next_music,
+.play_list,
+.dis_or_appear,
+.a_music {
     width: 35px;
     height: 35px;
     float: left;
@@ -180,7 +180,7 @@
     font-size: 20px;
 }
 
-.lyricList {
+.lyric_list {
     height: 80px;
     transition: 0.6s;
     border-radius: 32px;
@@ -190,8 +190,8 @@
     justify-content: center;
 }
 
-.lyricLrc,
-.lyricT {
+.lyric_lrc,
+.lyric_t {
     margin: 0;
     text-align: center;
 }

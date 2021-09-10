@@ -52,12 +52,12 @@ function user_music_list_load() {
     if (user_login != null) cookie = user_login.cookie
     if (user_login != null) {
         var list = get('http://' + ip + ':3000/user/playlist?uid=' + user_login.account.id)
-        var MainList = ''
+        var main_list = ''
         for (listn in list.playlist) {
-            MainList = MainList + '<a class="listWords" onclick="showMusicList(' + list.playlist[listn].id + ')">' +
+            main_list = main_list + '<a class="list_words" onclick="show_music_list(' + list.playlist[listn].id + ')">' +
                 list.playlist[listn].name + '</a></br>'
         }
-        document.getElementById("list").innerHTML = MainList;
+        document.getElementById("list").innerHTML = main_list;
         list = null
     }
 
@@ -65,48 +65,48 @@ function user_music_list_load() {
 
 
 // 具体歌单
-function showMusicList(id) {
-    var musicListId = get('http://' + ip + ':3000/playlist/detail?id=' + id + '&cookie=' + cookie).playlist.trackIds
+function show_music_list(id) {
+    var music_list_id = get('http://' + ip + ':3000/playlist/detail?id=' + id + '&cookie=' + cookie).playlist.trackIds
     var Ids = ''
-    for (Idsn in musicListId) {
-        var Ids = Ids + ',' + musicListId[Idsn].id
+    for (Idsn in music_list_id) {
+        var Ids = Ids + ',' + music_list_id[Idsn].id
     }
     var Ids = Ids.substring(1)
-    nameList = get('http://' + ip + ':3000/song/detail?ids=' + Ids).songs
+    name_list = get('http://' + ip + ':3000/song/detail?ids=' + Ids).songs
     MusicList = new Array()
-    for (idn in nameList) {
-        MusicList[idn] = nameList[idn].id
+    for (idn in name_list) {
+        MusicList[idn] = name_list[idn].id
     }
 
-    var nameListWord = ''
-    for (var namen in nameList) {
-        var name = nameList[namen].name;
-        var alia = (nameList[namen].alia[0] != undefined) ? nameList[namen].alia[0] : ''
-        var tns = (nameList[namen].tns != undefined) ? nameList[namen].tns[0] : ''
+    var name_list_word = ''
+    for (var namen in name_list) {
+        var name = name_list[namen].name;
+        var alia = (name_list[namen].alia[0] != undefined) ? name_list[namen].alia[0] : ''
+        var tns = (name_list[namen].tns != undefined) ? name_list[namen].tns[0] : ''
 
         if (alia == '' && tns == '') {
             var name = name;
         } else {
             if (alia == tns || tns == '') {
-                var name = name + '<span class="musicFrom">(' + alia + ')</span>';
+                var name = name + '<span class="music_from">(' + alia + ')</span>';
             } else if (alia == '') {
-                var name = name + '<span class="musicFrom">(' + tns + ')</span>';
+                var name = name + '<span class="music_from">(' + tns + ')</span>';
             } else {
-                var name = name + '<span class="musicFrom">(' + tns + '(' + alia + '))</span>';
+                var name = name + '<span class="music_from">(' + tns + '(' + alia + '))</span>';
             }
         }
 
         var singer = ''
-        for (singern in nameList[namen].ar) {
-            var singer = singer + '/' + nameList[namen].ar[singern].name
+        for (singern in name_list[namen].ar) {
+            var singer = singer + '/' + name_list[namen].ar[singern].name
         }
-        var singer = '<div class="singer">' + singer.substring(1) + '-' + nameList[namen].al.name + '</div>'
+        var singer = '<div class="singer">' + singer.substring(1) + '-' + name_list[namen].al.name + '</div>'
 
         // 重点
-        nameListWord = nameListWord + '<a onclick="play(' + nameList[namen].id + ')">' +
-            '<div class="nameListWord" id="mid' + nameList[namen].id + '"><p class="nameListWordP">' + name + '</p>' + singer + '</div></a></br>'
+        name_list_word = name_list_word + '<a onclick="play(' + name_list[namen].id + ')">' +
+            '<div class="name_list_word" id="mid' + name_list[namen].id + '"><p class="name_list_word_p">' + name + '</p>' + singer + '</div></a></br>'
     }
-    document.getElementById("musicList").innerHTML = nameListWord
+    document.getElementById("music_list").innerHTML = name_list_word
 }
 
 
@@ -116,16 +116,16 @@ function player_load() {
     music_audio.volume = 100 / 600
     // 403处理
     music_audio.addEventListener('error', () => {
-        play(playId)
+        play(play_id)
     })
     // 进度条
-    music_audio.addEventListener('timeupdate', playTime)
+    music_audio.addEventListener('timeupdate', play_time)
     // 播放键
     music_audio.addEventListener('pause', () => {
-        document.getElementById("stopOrStart").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="" height="" viewBox="0 0 52.917 52.917"><path d="M46.302 26.458L6.615 52.917V0z" fill="" stroke-width="0"/></svg>'
+        document.getElementById("stop_or_start").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="" height="" viewBox="0 0 52.917 52.917"><path d="M46.302 26.458L6.615 52.917V0z" fill="" stroke-width="0"/></svg>'
     })
     music_audio.addEventListener('play', () => {
-        document.getElementById("stopOrStart").innerHTML = '<svg width="" height="" viewBox="0 0 52.917 52.917" xmlns="http://www.w3.org/2000/svg"><g fill=""><rect width="10.583" height="52.917" x="10.583" ry="5.292" stroke-width="0"/><rect width="10.583" height="52.917" x="31.75" ry="5.292" stroke-width="0"/></g></svg>'
+        document.getElementById("stop_or_start").innerHTML = '<svg width="" height="" viewBox="0 0 52.917 52.917" xmlns="http://www.w3.org/2000/svg"><g fill=""><rect width="10.583" height="52.917" x="10.583" ry="5.292" stroke-width="0"/><rect width="10.583" height="52.917" x="31.75" ry="5.292" stroke-width="0"/></g></svg>'
     })
 
     // 结束后切歌(根据模式)
@@ -134,26 +134,26 @@ function player_load() {
         // 循环
         if (model == 'l') {
             // document.getElementById("music").loop = 'loop'
-            play(playId)
+            play(play_id)
             // music_audio.play()
         }
         // 顺序(上往下)
         if (model == 'o') {
-            nextMusic()
+            next_music()
         }
         // 随机
         if (model == 'r') {
-            nextMusic()
+            next_music()
         }
     }
 
 }
-playId = ''
+play_id = ''
 lrc = ''
 tlrc = ''
 timeline = ''
 
-function getUrl(id) {
+function get_url(id) {
     var url = post('http://' + ip + ':3000/song/url?id=' + id, cookie) //@@@@@#########################
     if (url.data[0].url == undefined) {
         var url = ''
@@ -164,10 +164,10 @@ function getUrl(id) {
 }
 
 function play(id) {
-    music_tmp_src = getUrl(id)
+    music_tmp_src = get_url(id)
     play_main(id, music_tmp_src)
     if (music_tmp_src == '') {
-        nextMusic()
+        next_music()
     }
     play_color()
     play_lyric()
@@ -176,8 +176,8 @@ function play(id) {
 function play_main(id, src) {
     music_audio.src = src
     music_audio.play()
-    playId = id
-    var anameList = post('http://' + ip + ':3000/song/detail?ids=' + playId, cookie).songs
+    play_id = id
+    var anameList = post('http://' + ip + ':3000/song/detail?ids=' + play_id, cookie).songs
     // 封面
     var img = anameList[0].al.picUrl + '?param=100y100'
     document.getElementById('fengmian').src = img
@@ -188,7 +188,7 @@ function play_main(id, src) {
         var singer = singer + '/' + anameList[0].ar[singern].name
     }
     var singer = singer.substring(1)
-    document.getElementById("playWords").innerHTML = name + '-' + singer
+    document.getElementById("play_words").innerHTML = name + '-' + singer
     if ('mediaSession' in navigator) {
         navigator.mediaSession.metadata = new MediaMetadata({
             title: name,
@@ -201,8 +201,8 @@ function play_main(id, src) {
             }, ]
         });
 
-        navigator.mediaSession.setActionHandler('previoustrack', lastMusic);
-        navigator.mediaSession.setActionHandler('nexttrack', nextMusic);
+        navigator.mediaSession.setActionHandler('previoustrack', last_music);
+        navigator.mediaSession.setActionHandler('nexttrack', next_music);
     }
 }
 // 主题色
@@ -218,15 +218,15 @@ function play_color() {
 }
 // 歌词
 function play_lyric() {
-    var lyric = post('http://' + ip + ':3000/lyric?id=' + playId, cookie)
+    var lyric = post('http://' + ip + ':3000/lyric?id=' + play_id, cookie)
     if (lyric.lrc != undefined) {
         lrc = lyric.lrc.lyric
-        timeline = cTimeline(lrc)
-        lrc = lyric2list(lrc)
+        timeline = c_time_line(lrc)
+        lrc = lyric_to_list(lrc)
         if (lyric.tlyric.lyric != null) {
             tlrc = lyric.tlyric.lyric
-            tlrc = lyric2list(tlrc)
-            // showlyric(timeline)
+            tlrc = lyric_to_list(tlrc)
+            // show_lyric(timeline)
         } else {
             tlrc = ''
         }
@@ -243,18 +243,12 @@ function play_lyric() {
             tInfinity: ''
         }
     }
-    showlyric()
+    show_lyric()
 }
 
-
-// 歌单顺序查id
-function numToId(num) {
-    var id = MusicList[num]
-    return id
-}
 
 // '秒'转'分:秒'
-function sToM(s) {
+function s_to_m(s) {
     var s = Math.round(s)
     if (s < 60) {
         if (s < 10) {
@@ -276,20 +270,20 @@ function sToM(s) {
 }
 
 // 播放器文字进度条
-function playTime() {
+function play_time() {
     document.getElementById("range").max = music_audio.duration
     document.getElementById("range").value = music_audio.currentTime
     document.getElementById("range").style.backgroundSize = music_audio.currentTime * 100 / music_audio.duration + '% 100%'
-    document.getElementById("playTime").innerHTML = sToM(music_audio.currentTime)
-    document.getElementById("playAllTime").innerHTML = sToM(music_audio.duration)
+    document.getElementById("play_time").innerHTML = s_to_m(music_audio.currentTime)
+    document.getElementById("play_all_time").innerHTML = s_to_m(music_audio.duration)
 
-    // setTimeout(playTime, 1000)
+    // setTimeout(play_time, 1000)
 }
-// playTime()
+// play_time()
 
 
 // 进度条控制
-function playTimeLong() {
+function play_time_range() {
     music_audio.currentTime = document.getElementById("range").value
     music_audio.play()
 }
@@ -307,27 +301,27 @@ function volume() {
 // 第一按钮,切歌模式
 model = 'l' //l:loop,r:randomly,o:orderly
 
-function playModel() {
+function play_model() {
     var l = '<svg width="" height="" viewBox="0 0 52.917 52.917" xmlns="http://www.w3.org/2000/svg"><g stroke=""><rect width="47.376" height="31.501" x="2.77" y="10.708" ry="15.75" rx="15.75" fill="none" stroke-width="5.541"/><rect width="5.182" height="18.411" x="23.867" y="17.253" ry="2.591" fill="" stroke-width="0"/><rect width="7.851" height="5.205" x="21.198" y="17.253" ry="2.603" fill="" stroke-width="0"/></g></svg>'
     var o = '<svg xmlns="http://www.w3.org/2000/svg" width="" height="" viewBox="0 0 52.917 52.917"><rect width="47.376" height="31.501" x="2.77" y="10.708" ry="15.75" rx="15.75" fill="none" stroke="" stroke-width="5.541"/></svg>'
     var r = '<svg width="" height="" viewBox="0 0 52.917 52.917" xmlns="http://www.w3.org/2000/svg"><g fill="" stroke="" stroke-width="7.938" stroke-linecap="round"><path d="M3.969 13.23c22.59 0 22.702 26.879 44.979 26.457M3.969 39.688c22.514 0 22.314-26.459 44.979-26.459"/></g></svg>'
-    var modelList = {
+    var model_list = {
         'l': 'o',
         'o': 'r',
         'r': 'l'
     }
-    model = modelList[model]
-    document.getElementById("playModel").innerHTML = eval(model)
+    model = model_list[model]
+    document.getElementById("play_model").innerHTML = eval(model)
 }
 
 // 第二按钮,上一首<
-function lastMusic() {
+function last_music() {
     if (model == 'r') {
         var listn = Math.floor(Math.random() * (MusicList.length + 1))
         play(MusicList[listn])
     } else {
         for (var idn in MusicList) {
-            if (playId == MusicList[idn]) {
+            if (play_id == MusicList[idn]) {
                 idnn = Number(idn) - 1
                 if (idnn == -1) {
                     idnn = MusicList.length
@@ -341,24 +335,24 @@ function lastMusic() {
 }
 
 // 第三按钮,暂停播放 ||
-function stopOrStart() {
+function stop_or_start() {
     if (music_audio.paused != true) {
         music_audio.pause()
-        // document.getElementById("stopOrStart").style.backgroundImage = 'url(assets/musicicon/p.svg)'
+        // document.getElementById("stop_or_start").style.backgroundImage = 'url(assets/musicicon/p.svg)'
     } else {
         music_audio.play()
-        // document.getElementById("stopOrStart").style.backgroundImage = 'url(assets/musicicon/s.svg)'
+        // document.getElementById("stop_or_start").style.backgroundImage = 'url(assets/musicicon/s.svg)'
     }
 }
 
 // 第四按钮,下一首>
-function nextMusic() {
+function next_music() {
     if (model == 'r') {
         var listn = Math.floor(Math.random() * (MusicList.length + 1))
         play(MusicList[listn])
     } else {
         for (var idn in MusicList) {
-            if (playId == MusicList[idn]) {
+            if (play_id == MusicList[idn]) {
                 idnn = Number(idn) + 1
                 if (idnn > MusicList.length) {
                     idnn = 0
@@ -372,51 +366,51 @@ function nextMusic() {
 }
 
 // 第五按钮，展示歌词
-function playList() {
+function play_list() {
     if (document.getElementById("lyric").style.display == "none") {
         document.getElementById("lyric").style.display = ""
         document.getElementById("list").style.display = "none"
-        document.getElementById("musicList").style.display = "none"
+        document.getElementById("music_list").style.display = "none"
     } else {
         document.getElementById("lyric").style.display = "none"
         document.getElementById("list").style.display = ""
-        document.getElementById("musicList").style.display = ""
+        document.getElementById("music_list").style.display = ""
     }
 }
 
 // 第六按钮，展示翻译
-disOrAppearValue = 'true'
+dis_or_appear_value = 'true'
 
-function disOrAppear() {
-    var tStyle = $('.lyricT')
-    if (disOrAppearValue == 'true') {
-        disOrAppearValue = 'flase'
-        for (var i = 0; i < tStyle.length; i++) {
-            tStyle[i].style.color = '#fff0'
+function dis_or_appear() {
+    var t_style = $('.lyric_t')
+    if (dis_or_appear_value == 'true') {
+        dis_or_appear_value = 'flase'
+        for (var i = 0; i < t_style.length; i++) {
+            t_style[i].style.color = '#fff0'
         }
     } else {
-        disOrAppearValue = 'true'
-        for (var i = 0; i < tStyle.length; i++) {
-            tStyle[i].style.color = 'var(--main-color)'
+        dis_or_appear_value = 'true'
+        for (var i = 0; i < t_style.length; i++) {
+            t_style[i].style.color = 'var(--main-color)'
         }
     }
 }
 
 // 第七按钮，定位歌曲
-aMusicValue = true
+a_music_value = true
 
-function aMusic() {
-    document.getElementById('musicList').scrollTop = aMusicValue == true ? document.getElementById('mid' + playId).offsetTop : 0
-    aMusicValue = !aMusicValue
+function a_music() {
+    document.getElementById('music_list').scrollTop = a_music_value == true ? document.getElementById('mid' + play_id).offsetTop : 0
+    a_music_value = !a_music_value
 }
 
 // 虚空按钮，远距离控制
-function playMiniControl() {
-    return '<span class="playMiniControl"><a onclick="lastMusic()">      &lt;      </a><a onclick="stopOrStart()">      &#124; &#124;      </a><a onclick="nextMusic()">      &gt;      </a></span>'
+function play_mini_control() {
+    return '<span class="play_mini_control"><a onclick="last_music()">      &lt;      </a><a onclick="stop_or_start()">      &#124; &#124;      </a><a onclick="next_music()">      &gt;      </a></span>'
 }
 
 // 歌词
-function lyric2list(lyric) {
+function lyric_to_list(lyric) {
     list = lyric.split('\n')
     object = {}
     for (i in list) {
@@ -425,7 +419,7 @@ function lyric2list(lyric) {
         var time = list[i]
         var time = time.match(re)
         for (t in time) { // 解决多个时间一起对应一个歌词
-            var key = 't' + lt2t(time[t])
+            var key = 't' + lt_to_t(time[t])
             object[key] = list[i].replace(re, '')
         }
     }
@@ -442,23 +436,20 @@ function lyric2list(lyric) {
     return object
 }
 
-function lt2t(t) {
+function lt_to_t(t) {
     t = t.match(/\[([0-9]+):([0-9]+).([0-9]+)\]/)
     var key = t[1] * 60 + Number(t[2] + '.' + t[3])
     return key
 }
 
-function cTimeline(l) {
+function c_time_line(l) {
     var timeline = []
     var list = l.match(/\[([0-9]+):([0-9]+).([0-9]+)\]/g)
     for (i in list) {
-        timeline[i] = lt2t(list[i])
+        timeline[i] = lt_to_t(list[i])
     }
 
-    function sortNumber(a, b) {
-        return a - b
-    }
-    timeline = timeline.sort(sortNumber) // 排序
+    timeline = timeline.sort((a,b)=>{return a-b}) // 排序
 
     if (timeline[0] != 0) {
         timeline.unshift(0, 0.01)
@@ -469,12 +460,12 @@ function cTimeline(l) {
     return timeline
 }
 
-function showlyric() {
+function show_lyric() {
     lyricText = ''
     // if (timeline != '') {
     for (x in timeline) {
-        var gotof = "goto('t" + timeline[x] + "')"
-        lyricText += '<a onclick="' + gotof + '"><div id="t' + timeline[x] + '" class="lyricList">' + '<p class="lyricLrc">' + lrc['t' + timeline[x]].replace("'", "&#x27;") + '</p>' + '<p class="lyricT">' + ('' + tlrc['t' + timeline[x]]).replace(undefined, '') + '</p>' + '</div></a>'
+        var gotof = "go_to('t" + timeline[x] + "')"
+        lyricText += '<a onclick="' + gotof + '"><div id="t' + timeline[x] + '" class="lyric_list">' + '<p class="lyric_lrc">' + lrc['t' + timeline[x]].replace("'", "&#x27;") + '</p>' + '<p class="lyric_t">' + ('' + tlrc['t' + timeline[x]]).replace(undefined, '') + '</p>' + '</div></a>'
     }
     document.getElementById('lyric').innerHTML = lyricText
     // } else {
@@ -485,7 +476,7 @@ function showlyric() {
 
 tx = ''
 
-function changeLyric() {
+function change_lyric() {
     if (music_audio.paused != true) { // 减少压力
         var music_audiotime = music_audio.currentTime
         // if (timeline != '') {
@@ -504,9 +495,9 @@ function changeLyric() {
     }
 }
 
-setInterval('changeLyric()', 100)
+setInterval('change_lyric()', 100)
 
-function goto(timeId) {
-    document.getElementById('lyric').scrollTop = document.getElementById(timeId).offsetTop - 240
-    music_audio.currentTime = timeId.substring(1)
+function go_to(time_id) {
+    document.getElementById('lyric').scrollTop = document.getElementById(time_id).offsetTop - 240
+    music_audio.currentTime = time_id.substring(1)
 }
