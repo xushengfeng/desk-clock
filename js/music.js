@@ -49,7 +49,7 @@ cookie = ''
 function user_music_list_load() {
     //cookie和用户信息
     user_login = get('http://localhost:3000/login?email=' + privacy['music_id'] + '&md5_password=' + privacy['music_passwd'])
-    if(user_login!=null) cookie = user_login.cookie
+    if (user_login != null) cookie = user_login.cookie
     if (user_login != null) {
         var list = get('http://' + ip + ':3000/user/playlist?uid=' + user_login.account.id)
         var MainList = ''
@@ -164,7 +164,17 @@ function getUrl(id) {
 }
 
 function play(id) {
-    music_audio.src = getUrl(id)
+    music_tmp_src = getUrl(id)
+    play_main(id, music_tmp_src)
+    if (music_tmp_src == '') {
+        nextMusic()
+    }
+    play_color()
+    play_lyric()
+}
+
+function play_main(id, src) {
+    music_audio.src = src
     music_audio.play()
     playId = id
     var anameList = post('http://' + ip + ':3000/song/detail?ids=' + playId, cookie).songs
@@ -194,13 +204,9 @@ function play(id) {
         navigator.mediaSession.setActionHandler('previoustrack', lastMusic);
         navigator.mediaSession.setActionHandler('nexttrack', nextMusic);
     }
-
-
-
-    // 按钮
-    // document.getElementById("stopOrStart").style.backgroundImage = 'url(assets/musicicon/s.svg)'
-
-    // 主题色
+}
+// 主题色
+function play_color() {
     var img = document.querySelector('#fengmian')
     img.onload = () => {
         img.crossOrigin = '';
@@ -209,9 +215,9 @@ function play(id) {
         var longColor = 'rgb(' + swatches.Muted.rgb[0] + ',' + swatches.Muted.rgb[1] + ',' + swatches.Muted.rgb[2] + ')'
         document.documentElement.style.setProperty('--main-color', longColor)
     }
-
-
-    // 歌词
+}
+// 歌词
+function play_lyric() {
     var lyric = post('http://' + ip + ':3000/lyric?id=' + playId, cookie)
     if (lyric.lrc != undefined) {
         lrc = lyric.lrc.lyric
