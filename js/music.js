@@ -406,7 +406,7 @@ function a_music() {
 
 // 虚空按钮，远距离控制
 function play_mini_control() {
-    return '<span class="play_mini_control"><a onclick="last_music()">      &lt;      </a><a onclick="stop_or_start()">      &#124; &#124;      </a><a onclick="next_music()">      &gt;      </a></span>'
+    return '<span class="play_mini_control" style="font-family:none"><a onclick="last_music()">      &lt;      </a><a onclick="stop_or_start()">      &#124; &#124;      </a><a onclick="next_music()">      &gt;      </a></span>'
 }
 
 // 歌词
