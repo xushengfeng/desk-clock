@@ -25,27 +25,27 @@ function weather() {
 //天气转icon
 function skyconIcon(data, width) {
     var skylist = {
-        CLEAR_DAY: ['晴', 'weather_0/day', '#0a77d4', '#6da7e6'],
-        CLEAR_NIGHT: ['晴', 'weather_0/night', '#04195c', '#3772b4'],
-        PARTLY_CLOUDY_DAY: ['多云', 'weather_1/day', '#5b7fb9', '#91a9cd'],
-        PARTLY_CLOUDY_NIGHT: ['多云', 'weather_1/night', '#2d3c63', '#486381'],
-        CLOUDY: ['阴', 'weather_2/day', '#8fa2c0', '#8d9fb3'],
-        CLOUDY_NIGHT: ['阴', 'weather_2/day', '#434d57', '#47505f'],
-        LIGHT_RAIN: ['小雨', 'weather_11/day', '#5e6f88', '#7a8a99'],
-        MODERATE_RAIN: ['中雨', 'weather_10/day', '#5e6f88', '#7a8a99'],
-        HEAVY_RAIN: ['大雨', 'weather_9/day', '#5e6f88', '#7a8a99'],
-        STORM_RAIN: ['暴雨', 'weather_9/day', '#5e6f88', '#7a8a99'],
-        LIGHT_SNOW: ['小雪', 'weather_15/day', '', ''],
-        MODERATE_SNOW: ['中雪', 'weather_16/day', '', ''],
-        HEAVY_SNOW: ['大雪', 'weather_17/day', '', ''],
-        FOG: ['雾', 'weather_3/day', '', ''],
-        HAZE: ['雾霾', 'weather_24/day', '', ''],
-        LIGHT_HAZE: ['轻霾', 'weather_0/day', '', ''],
-        WIND: ['大风', 'weather_0/day', '', ''],
+        CLEAR_DAY: ['晴', 'weather_0/day', 'weather_0/day', '#0a77d4', '#6da7e6'],
+        CLEAR_NIGHT: ['晴', 'weather_0/night','weather_0/night', '#04195c', '#3772b4'],
+        PARTLY_CLOUDY_DAY: ['多云', 'weather_1/day', 'weather_1/day','#5b7fb9', '#91a9cd'],
+        PARTLY_CLOUDY_NIGHT: ['多云', 'weather_1/night','weather_1/night', '#2d3c63', '#486381'],
+        CLOUDY: ['阴', 'weather_2/day','weather_2/day', '#8fa2c0', '#8d9fb3'],
+        CLOUDY_NIGHT: ['阴', 'weather_2/day','weather_2/day', '#434d57', '#47505f'],
+        LIGHT_RAIN: ['小雨', 'weather_4/day', 'weather_11/day', '#5e6f88', '#7a8a99'],
+        MODERATE_RAIN: ['中雨', 'weather_4/day','weather_10/day', '#5e6f88', '#7a8a99'],
+        HEAVY_RAIN: ['大雨', 'weather_4/day', 'weather_9/day', '#5e6f88', '#7a8a99'],
+        STORM_RAIN: ['暴雨', 'weather_4/day', 'weather_9/day', '#5e6f88', '#7a8a99'],
+        LIGHT_SNOW: ['小雪', 'weather_13/day','weather_15/day', '', ''],
+        MODERATE_SNOW: ['中雪', 'weather_13/day','weather_16/day', '', ''],
+        HEAVY_SNOW: ['大雪', 'weather_13/day','weather_17/day', '', ''],
+        FOG: ['雾', 'weather_3/day','weather_3/day', '', ''],
+        HAZE: ['雾霾', 'weather_24/day','weather_24/day', '', ''],
+        LIGHT_HAZE: ['轻霾', 'weather_0/day', 'weather_0/day', '', ''],
+        WIND: ['大风', 'weather_0/day','weather_0/day', '', ''],
         DUST: ['浮尘', 'pm_dirt']
     }
     var skycon = String(data)
-    var list = [skylist[skycon][0], '<img style="width:' + width + 'px" src="assets/weather/weather/' + skylist[skycon][1] + '.webp" title="' + skylist[skycon][0] + '">', '<img style="width:' + width + 'px" src="assets/weather/weather_small/' + skylist[skycon][1] + '.webp" title="' + skylist[skycon][0] + '">', 'linear-gradient(' + skylist[skycon][2] + ',' + skylist[skycon][3] + ')']
+    var list = [skylist[skycon][0], '<img style="width:' + width + 'px" src="assets/weather/weather/' + skylist[skycon][1] + '.webp" title="' + skylist[skycon][0] + '">', '<img style="width:' + width + 'px" src="assets/weather/weather_small/' + skylist[skycon][2] + '.webp" title="' + skylist[skycon][0] + '">', 'linear-gradient(' + skylist[skycon][3] + ',' + skylist[skycon][4] + ')']
     return list
 }
 
